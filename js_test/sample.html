@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Sample</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+    <style type="text/css">
+        #map {
+        height: 500px;
+        } 
+
+        #slider{
+        position: center;
+        }
+
+        #modal-content{
+        width:50%;
+        margin:1.5em auto 0;
+        padding:10px 20px;
+        border:2px solid #aaa;
+        background:#fff;
+        z-index:2;
+        left:300px;
+        }
+
+        .modal-p{
+            margin-top:1em;
+        }
+
+        .modal-p:first-child{
+            margin-top:0;
+        }
+
+        .button-link{
+            color:#00f;
+            text-decoration:underline;
+        }
+        
+        .button-link:hover{
+            cursor:pointer;
+            color:#f00;
+        }
+
+        .modal-p{
+            margin-top:1em;
+        }
+
+        .modal-p:first-child{
+            margin-top:0;
+        }
+
+        .button-link{
+            color:#00f;
+            text-decoration:underline;
+        }
+        
+        .button-link:hover{
+            cursor:pointer;
+            color:#f00;
+        }
+        #modal-content{
+            z-index:2;
+            position:fixed;
+        }
+        #modal-overlay{
+            z-index:1;
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:120%;
+            background-color:rgba(0,0,0,0.75);
+        }
+        #mycanvas{
+            display: none;
+            margin: 10px auto;
+        }
+        #modal-selfFB{
+            display: none;
+            width:50%;
+            margin:1.5em auto 0;
+            padding:10px 20px;
+            border:2px solid #aaa;
+            background:#fff;
+            z-index:2;
+            left:300px;
+            z-index:3;
+            position:fixed;
+        }
+        .slider{
+            height: 500px;
+            width:50%;
+
+        } 
+    </style>
+</head>
+<p><a id="modal-open" class="button-link">この度の所要時間など</a></p>
+<div id="modal-selfFB">
+    <p>所要時間：30H~35H</p>
+    <p>使用言語：HTML・CSS・JS(jquery)</p>
+    <p>機能的なところ：モーダル・スライダー・API・canvas</p>
+    <p>とにかく基礎から、自分が遊びたいように遊びました。</p>
+<p><a id="modal-selfFB-close" class="button-link">閉じる</a></p>
+</div>
+
+<div id="modal-content">
+            <p>「閉じる」をクリックするとモーダルウィンドウを終了します。</p>
+        <p><a id="modal-close" class="button-link">閉じる</a></p>
+        <p><a id="modal-new" class="button-link">きになる？</a></p>
+    </div>
+    <div id="modal-overlay"></div>
+
+    <canvas id="mycanvas" width="500" height="250">
+
+    </canvas> 
+    <div>
+        <h2>今日の天気</h2>
+        <p>
+        <small>現在時刻:</small>
+        <span id="time"></span>
+        <small>場所:</small>
+        <span id="here"></span> 
+        <small>現在の気温:</small>
+        <span id="temp"></span> 
+        <span id="icon"></span> 
+        </p>
+    </div>
+
+    <div class="slider" >
+        <li><img src="source/itprooffice.png"/></li>
+        <li><img src="source/onepeace.jpg"/></li>
+        <li><img src="source/country.jpeg"/></li>
+    </div>
+    
+    <p id="map"></p>
+</body>
+<script src="sample/sample.js" type="text/javascript" charset="utf-8"></script> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbm_Z-ODkFCHlOwSnfwPeQmT8Oy6hIF6U&callback=initMap"></script>
+
+</html>
